@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ParkingDAO">
+	<select id="getParking" resultType="parking">
+	<![CDATA[
+		SELECT * 
+		FROM PARKINGBOARD
+		WHERE parking_id = #{parking_id}
+		
+	]]>
+	</select>
+	
+	<select id="getParkingList" resultType="parking">
+	<![CDATA[
+		SELECT * 
+		FROM PARKINGBOARD
+		
+	]]>
+	</select>
+	
+	<insert id="insertParking">
+	<![CDATA[
+		INSERT INTO parkingboard(owner_id, parking_type, parking_title, parking_content, parking_pic, parking_location, parking_cartype, parking_price, parking_intime, parking_outtime, parking_deleted)
+		VALUES(#{owner_id}, #{parking_type}, #{parking_title}, #{parking_content} , #{parking_pic},#{parking_location},#{parking_cartype},#{parking_price},#{parking_intime},#{parking_outtime},#{parking_deleted})
+	]]>
+	</insert>
+	
+	<update id="updateParking">
+	<![CDATA[
+		UPDATE parkingboard SET parking_type=#{parking_type}, parking_title=#{parking_title}, parking_content=#{parking_content} , 
+		parking_pic=#{parking_pic},parking_location=#{parking_location},parking_cartype=#{parking_cartype},parking_price=#{parking_price},parking_intime=#{parking_intime},parking_outtime=#{parking_outtime}
+		WHERE parking_id = #{parking_id}
+	]]>
+	</update>
+	
+	<update id="updateParking_deleted">
+	<![CDATA[
+		UPDATE parkingboard SET parking_deleted=2
+		WHERE parking_id = #{parking_id}
+	]]>
+	</update>
+	
+	<update id="updateParking_down">
+	<![CDATA[
+		UPDATE parkingboard SET parking_deleted=1
+		WHERE parking_id = #{parking_id}
+	]]>
+	</update>
+	
+	<update id="updateParking_ori">
+	<![CDATA[
+		UPDATE parkingboard SET parking_deleted=0
+		WHERE parking_id = #{parking_id}
+	]]>
+	</update>
+	
+	
+	
+	
+	<delete id="deleteParking">
+	<![CDATA[
+		DELETE parkingboard
+		WHERE parking_id = #{parking_id}
+		
+	]]>
+	</delete>
+	
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ChatDAO">
+	<insert id="insertChatroom">
+	<![CDATA[
+		INSERT INTO CHATROOM (rsv_id, parker_id)
+		VALUES (#{rsv_id}, #{parker_id}); 
+	]]>
+	</insert>
+	
+	<select id="selectChatroom" resultType="chat">
+	<![CDATA[
+		SELECT chatroom_id
+		FROM CHATROOM
+		WHERE rsv_id = #{rsv_id}; 
+	]]>
+	</select>
+</mapper>

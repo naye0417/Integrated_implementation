@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- Alias 설정 -->
+	<typeAliases>
+		<typeAlias alias="parking"
+			type="com.where2park.biz.parking.ParkingVO" />
+	<typeAlias alias="rsv"
+			type="com.where2park.biz.reservation.RsvVO" />
+		<typeAlias alias="review"
+			type="com.where2park.biz.review.ReviewVO" />
+	<typeAlias alias="chat"  
+			type="com.where2park.biz.chat.ChatVO"/>		
+	</typeAliases>
+	
+
+	<!-- Sql Mapper 설정 -->
+	<mappers>
+		<mapper resource="mappings/parking-mapping.xml" />
+		<mapper resource="mappings/reservation-mapping.xml" />
+		<mapper resource="mappings/review-mapping.xml" />
+		<mapper resource="mappings/chat-mapping.xml"/>
+	</mappers>
+	
+</configuration>

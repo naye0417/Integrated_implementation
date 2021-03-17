@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RsvDAO">
+	<insert id="insertRsv">
+		INSERT INTO reservation (parker_id, parking_id, rsv_price, rsv_intime,
+		rsv_outtime, rsv_datetime, rsv_states) values (18457, 35254, 2500,
+		'2021-04-03 11:00:00', '2021-04-06 10:00:00','2021-03-13 17:22:00',
+		0);
+	</insert>
+	<update id="updateRsv">
+		UPDATE reservation SET rsv_states = #{rsv_states} WHERE
+		rsv_id=#{rsv_id}
+	</update>
+	<delete id="deleteRsv">
+		DELETE FROM reservation WHERE rsv_id = #{rsv_id}
+	</delete>
+	<select id="getRsv" resultType="rsv">
+		SELECT * FROM reservation
+		WHERE rsv_id=#{rsv_id}
+		<!--  rsv_id = #{parking_id} AND parker_id=#{parker_id}-->
+	</select>
+
+	<select id="getRsvList" resultType="rsv">
+		SELECT * FROM reservation
+	</select>
+</mapper>
